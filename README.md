@@ -8,8 +8,6 @@ git clone https://github.com/JaredHane98/AWS-EKS-AURORA.git
 ```
 
 # Deploying the cluster
-
-
 ---
 
 Nagivate to  the CreateEKSCluster directory
