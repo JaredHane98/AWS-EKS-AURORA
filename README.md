@@ -386,7 +386,7 @@ eksctl delete cluster -f cluster-launch.yml --disable-nodegroup-eviction
 
 You may also have to manually delete the VPC and associated load balancer in the AWS console.
 
-# Things you could add
+# Things to add
 
 
 ---
