@@ -53,7 +53,7 @@ aws ec2 describe-vpcs
 # Deploying Aurora Serverless V2 RDS Database
 
 
----
+
 
 Create another window and navigate to the CreateAuroraCDK directory.
 
@@ -78,7 +78,7 @@ cdk deploy
 # Installing Cilium
 
 
----
+
 
 Return to the window where the cluster is being created and wait for the process to complete. Once it’s finished, install Cilium using the following commands.
 
@@ -109,7 +109,7 @@ cilium connectivity test
 # Setup IAM Service Account
 
 
----
+
 
 With the cluster set up and Cilium in place, we can now create a service account for the deployment. Note that the upcoming steps will require the Secret ARN created by the Aurora instance.
 
@@ -167,7 +167,7 @@ eksctl create iamserviceaccount --name db-service-account-1 --namespace default 
 # Create the RDS Table
 
 
----
+
 
 Instead of launching an EC2 instance within the VPC, you can use the RDS Query Editor to create a table. Log in to the editor using the RDS_SECRET_ARN and RDS_DATABASE_NAME provided in the CDK outputs. Then, create a table using the following command.
 
@@ -186,7 +186,7 @@ create table EmployeeTable (
 # Create the containers
 
 
----
+
 
 Go back to the console and navigate to the EKSApp directory.
 
@@ -212,7 +212,7 @@ Regardless of your choice you must remember the image URL.
 # Deploying the pods
 
 
----
+
 
 Navigate back to the CreateEKSCluster directory.
 
