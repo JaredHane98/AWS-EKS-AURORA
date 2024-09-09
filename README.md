@@ -368,7 +368,7 @@ You may also have to manually delete the VPC and associated load balancer in the
 * Cluster node scaling
 * Stress test using K6 or any other platform
 * Improved Aurora Scaling
-* Create an Init Container to intialize the database rather than relying on the Query Editor and RDS Data API.
+* Create a job initialize the database
 * TLS Certification
 
 # Final words
