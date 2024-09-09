@@ -1,4 +1,4 @@
-The following repository creates an EKS Cluster with a Aurora Serverless V2 PostgreSQL database.  It makes the assumption that you have installed [Cilium CLI](https://kubernetes.io/docs/reference/kubectl/), [EKSCTL](https://eksctl.io/installation/), [kubectl](https://kubernetes.io/docs/reference/kubectl/), [docker](https://docs.docker.com/engine/install/) and have the necessary permissions to create the database. It’s also important to note that some cost are associated with the use of these resources. So with that out of the way lets begin.
+This repository sets up an EKS Cluster with an Aurora Serverless V2 PostgreSQL database. It assumes that you have the following tools installed: [Cilium CLI](https://kubernetes.io/docs/reference/kubectl/), [EKSCTL](https://eksctl.io/installation/), [kubectl](https://kubernetes.io/docs/reference/kubectl/), [docker](https://docs.docker.com/engine/install/). Additionally you must have the necessary permissions to create the database. Lastly be aware these resources may incur costs.
 
 
 First off clone the repository if you already haven’t.
@@ -18,7 +18,7 @@ Nagivate to  the CreateEKSCluster directory
 cd ./AWS-EKS-AURORA/CreateEKSCluster
 ```
 
-Now lets create the cluster. It’s important to note the VPC created by the cluster because it’s going to be used in the next steps.
+Next, create the cluster. Make sure to take note of the VPC created by the cluster, as it will be used in the subsequent steps.
 
 ```bash
 eksctl create cluster -f cluster-launch.yml
@@ -113,7 +113,7 @@ cilium connectivity test
 
 ---
 
-Now that we have a cluster with Cilium we can create a service account for the deployment. It’s important to note that the next steps require the Secret Arn created by the Aurora instance.
+With the cluster set up and Cilium in place, we can now create a service account for the deployment. Note that the upcoming steps will require the Secret ARN created by the Aurora instance.
 
 
 Create an IAM OIDC identity provider for our cluster
@@ -159,7 +159,7 @@ Create the IAM Policy
 aws iam create-policy --policy-name db-policy-1 --policy-document file://iam-policy.json
 ```
 
-Create the service account. Replace the --attach-policy-arn with the one from the previos step.
+Create the service account. Replace the --attach-policy-arn with the one from the previous step.
 
 ```bash
 eksctl create iamserviceaccount --name db-service-account-1 --namespace default --cluster db-cluster-1 \
@@ -171,7 +171,7 @@ eksctl create iamserviceaccount --name db-service-account-1 --namespace default 
 
 ---
 
-Rather than launching EC2 instance within the VPC we can use the RDS Query Editor to create a table. Log into the editor using the RDS_SECRET_ARN & RDS_DATABASE_NAME provided in the CDK outputs. Then create a table with the following command.
+Instead of launching an EC2 instance within the VPC, you can use the RDS Query Editor to create a table. Log in to the editor using the RDS_SECRET_ARN and RDS_DATABASE_NAME provided in the CDK outputs. Then, create a table using the following command.
 
 ```sql
 create table EmployeeTable (
@@ -403,4 +403,4 @@ You may also have to manually delete the VPC and associated load balancer in the
 
 ---
 
-There’s another project in the directory called CreateDatabase. It generates over 4000 random entries you could use.
+There’s another project in the directory named CreateDatabase. It generates over 4,000 random entries that you can use.
