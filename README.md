@@ -82,7 +82,7 @@ cdk deploy
 
 ---
 
-Go back to the window that was creating the cluster and wait for it to be completed. Then install Cilium with the following commands.
+Return to the window where the cluster is being created and wait for the process to complete. Once it’s finished, install Cilium using the following commands.
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.1.0/config/crd/standard/gateway.networking.k8s.io_gatewayclasses.yaml
