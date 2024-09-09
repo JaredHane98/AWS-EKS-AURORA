@@ -1,4 +1,4 @@
-This repository sets up an EKS Cluster with an Aurora Serverless V2 PostgreSQL database. It assumes that you have the following tools installed: [Cilium CLI](https://kubernetes.io/docs/reference/kubectl/), [EKSCTL](https://eksctl.io/installation/), [kubectl](https://kubernetes.io/docs/reference/kubectl/), [docker](https://docs.docker.com/engine/install/). Additionally you must have the necessary permissions to create the database. Lastly be aware these resources may incur costs.
+This repository sets up an EKS Cluster with an Aurora Serverless V2 PostgreSQL database. It assumes that you have the following tools installed: [Cilium CLI](https://kubernetes.io/docs/reference/kubectl/), [EKSCTL](https://eksctl.io/installation/), [kubectl](https://kubernetes.io/docs/reference/kubectl/), [docker](https://docs.docker.com/engine/install/). Additionally you must have the necessary permissions to create the database. Be aware these resources may incur costs.
 
 
 First off clone the repository if you already haven’t.
