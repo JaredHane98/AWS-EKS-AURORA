@@ -26,7 +26,7 @@ eksctl create cluster -f cluster-launch.yml
 
 Check the progress of the VPC using the CLI. You can also use AWS console.
 
-```markup
+```bash
 aws ec2 describe-vpcs
 {
             "CidrBlock": "192.168.0.0/16",
@@ -135,7 +135,7 @@ export RDS_SECRET_ARN=SECRET_ARN_FROM_CDK
 
 Create an IAM policy file
 
-```markup
+```bash
 cat >iam-policy.json <<EOF
 {
     "Version": "2012-10-17",
@@ -231,7 +231,7 @@ export RDS_SECRET=RDS_SECRET_FROM_CDK
 
 Create a deployment file.
 
-```javascript
+```bash
 cat >deployment.yml << EOF
 ---
 apiVersion: v1
@@ -311,14 +311,14 @@ EOF
 
 Now launch the deployment and gateway.
 
-```javascript
+```bash
 kubectl apply -f deployment.yml
 kubectl apply -f gateway.yml
 ```
 
 Check the pods status
 
-```javascript
+```bash
 kubectl get pods -o wide
 ```
 
@@ -345,25 +345,25 @@ curl --header "Content-Type: application/json" --request POST --data '{"id": "eb
 
 Get an employee
 
-```javascript
+```bash
 curl --request GET http://$GATEWAY/employee/ebae8ff2-2e25-49b1-b7a6-3d6f5e8a20bd
 ```
 
 Update an employee
 
-```markup
+```bash
 curl --header "Content-Type: application/json" --request PUT --data '{"salary": 150000}' http://$GATEWAY/employee/ebae8ff2-2e25-49b1-b7a6-3d6f5e8a20bd
 ```
 
 Verify the salary has been updated
 
-```javascript
+```bash
 curl --request GET http://$GATEWAY/employee/ebae8ff2-2e25-49b1-b7a6-3d6f5e8a20bd
 ```
 
 Remove an employee
 
-```javascript
+```bash
 curl --request DELETE http://$GATEWAY/employee/ebae8ff2-2e25-49b1-b7a6-3d6f5e8a20bd
 ```
 
@@ -374,13 +374,13 @@ curl --request DELETE http://$GATEWAY/employee/ebae8ff2-2e25-49b1-b7a6-3d6f5e8a2
 
 Navigate to the CreateAuroraCDK directory and run
 
-```javascript
+```bash
 cdk destroy
 ```
 
 Navigate to the CreateEKSCluster and run
 
-```javascript
+```bash
 eksctl delete cluster -f cluster-launch.yml --disable-nodegroup-eviction
 ```
 
